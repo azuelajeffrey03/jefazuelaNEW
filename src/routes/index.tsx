@@ -416,14 +416,37 @@ function Portfolio() {
 }
 
 function SectionLabel({ eyebrow, title }: { eyebrow: string; title: string }) {
+  const ref = useReveal<HTMLDivElement>();
   return (
-    <div className="flex flex-col gap-3">
+    <div ref={ref} className="reveal flex flex-col gap-3">
       <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">{eyebrow}</div>
       <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
         {title}
       </h2>
     </div>
   );
+}
+
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
 }
 
 function ContactItem({
