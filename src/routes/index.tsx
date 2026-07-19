@@ -208,8 +208,9 @@ function Portfolio() {
           <div className="relative">
             <div className="glow-border relative overflow-hidden rounded-2xl">
               <img
-                src={heroImg}
-                alt="Abstract visualization of an automation workflow"
+                src={heroImg.url}
+                alt="Portrait of Jeffrey Azuela"
+
                 width={1600}
                 height={1200}
                 className="h-full w-full object-cover"
