@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import {
   Workflow,
   Zap,
@@ -15,7 +16,11 @@ import {
   Linkedin,
   Send,
 } from "lucide-react";
-import heroImg from "@/assets/hero-automation.jpg";
+import heroImg from "@/assets/jeffrey-portrait.jpg.asset.json";
+import asanaCrmImg from "@/assets/asana-crm.jpg.asset.json";
+import fbAgentImg from "@/assets/fb-agent.jpg.asset.json";
+import asanaXeroImg from "@/assets/asana-xero.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -85,15 +90,15 @@ const experience = [
   },
 ];
 
-const projects = [
+const projects: { tag: string; title: string; desc: string; image?: string }[] = [
   { tag: "n8n", title: "AI Appointment Setter", desc: "Autonomous agent that qualifies leads, checks calendars, and books meetings via natural conversation." },
   { tag: "n8n", title: "AI Jobs Scraper + Resume Optimizer", desc: "Scrapes fresh job listings and tailors resumes automatically for higher match scores." },
   { tag: "n8n", title: "YouTube Shorts & Reels Creator", desc: "Turns long-form content into short vertical videos published on autopilot." },
-  { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies." },
+  { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies.", image: fbAgentImg.url },
   { tag: "Zapier", title: "AI Content Repurposing", desc: "One blog post → LinkedIn, X, newsletter, and short-form scripts in one click." },
-  { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana." },
+  { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana.", image: asanaCrmImg.url },
   { tag: "Make", title: "Gmail → Drive Auto-Sort", desc: "Attachments automatically categorized and filed to the right Drive folders." },
-  { tag: "Make", title: "Asana × Xero Integration", desc: "Project tasks synced to invoices and financial reporting in Xero." },
+  { tag: "Make", title: "Asana × Xero Integration", desc: "Project tasks synced to invoices and financial reporting in Xero.", image: asanaXeroImg.url },
 ];
 
 const testimonials = [
@@ -170,9 +175,8 @@ function Portfolio() {
               </span>
               Available for projects
             </div>
-            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-              I automate the <br />
-              boring stuff with <span className="text-gradient">AI</span>.
+            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              Building <span className="text-gradient">Automation</span> That Saves Time and Scales Businesses.
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
               I'm Jeffrey — an AI Automation Specialist. I design workflows in Zapier, Make, n8n, and
@@ -203,8 +207,9 @@ function Portfolio() {
           <div className="relative">
             <div className="glow-border relative overflow-hidden rounded-2xl">
               <img
-                src={heroImg}
-                alt="Abstract visualization of an automation workflow"
+                src={heroImg.url}
+                alt="Portrait of Jeffrey Azuela"
+
                 width={1600}
                 height={1200}
                 className="h-full w-full object-cover"
@@ -265,7 +270,7 @@ function Portfolio() {
 
       <section id="experience" className="border-y border-border/50 bg-card/30">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <SectionLabel eyebrow="02 — Experience" title="A decade of solving problems" />
+          <SectionLabel eyebrow="02 — Experience" title="Years of Delivering Automation Solutions" />
           <div className="mt-12 space-y-6">
             {experience.map((job) => (
               <div
@@ -301,17 +306,29 @@ function Portfolio() {
           {projects.map((p) => (
             <div
               key={p.title}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/40"
             >
-              <div>
-                <div className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
-                  {p.tag}
+              {p.image && (
+                <div className="aspect-[16/10] overflow-hidden border-b border-border bg-background">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-              </div>
-              <div className="mt-6 flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
-                <ArrowUpRight className="h-4 w-4" />
+              )}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div>
+                  <div className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
+                    {p.tag}
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-semibold leading-snug">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                </div>
+                <div className="mt-6 flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </div>
             </div>
           ))}
@@ -399,14 +416,37 @@ function Portfolio() {
 }
 
 function SectionLabel({ eyebrow, title }: { eyebrow: string; title: string }) {
+  const ref = useReveal<HTMLDivElement>();
   return (
-    <div className="flex flex-col gap-3">
+    <div ref={ref} className="reveal flex flex-col gap-3">
       <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">{eyebrow}</div>
       <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight md:text-5xl">
         {title}
       </h2>
     </div>
   );
+}
+
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
 }
 
 function ContactItem({
