@@ -16,7 +16,11 @@ import {
   Linkedin,
   Send,
 } from "lucide-react";
-import heroImg from "@/assets/hero-automation.jpg";
+import heroImg from "@/assets/jeffrey-portrait.jpg.asset.json";
+import asanaCrmImg from "@/assets/asana-crm.jpg.asset.json";
+import fbAgentImg from "@/assets/fb-agent.jpg.asset.json";
+import asanaXeroImg from "@/assets/asana-xero.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
