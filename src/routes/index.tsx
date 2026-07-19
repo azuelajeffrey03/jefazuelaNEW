@@ -90,15 +90,15 @@ const experience = [
   },
 ];
 
-const projects = [
+const projects: { tag: string; title: string; desc: string; image?: string }[] = [
   { tag: "n8n", title: "AI Appointment Setter", desc: "Autonomous agent that qualifies leads, checks calendars, and books meetings via natural conversation." },
   { tag: "n8n", title: "AI Jobs Scraper + Resume Optimizer", desc: "Scrapes fresh job listings and tailors resumes automatically for higher match scores." },
   { tag: "n8n", title: "YouTube Shorts & Reels Creator", desc: "Turns long-form content into short vertical videos published on autopilot." },
-  { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies." },
+  { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies.", image: fbAgentImg.url },
   { tag: "Zapier", title: "AI Content Repurposing", desc: "One blog post → LinkedIn, X, newsletter, and short-form scripts in one click." },
-  { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana." },
+  { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana.", image: asanaCrmImg.url },
   { tag: "Make", title: "Gmail → Drive Auto-Sort", desc: "Attachments automatically categorized and filed to the right Drive folders." },
-  { tag: "Make", title: "Asana × Xero Integration", desc: "Project tasks synced to invoices and financial reporting in Xero." },
+  { tag: "Make", title: "Asana × Xero Integration", desc: "Project tasks synced to invoices and financial reporting in Xero.", image: asanaXeroImg.url },
 ];
 
 const testimonials = [
