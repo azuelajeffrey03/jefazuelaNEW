@@ -88,10 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "AI automations, CRM integrations, and no-code workflows that free teams to focus on growth.",
+          "Portfolio of Jeffrey Azuela — AI Automation Specialist building Zapier, Make, n8n, and GoHighLevel workflows that cut manual work by up to 80%.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jeffrey Azuela — AI Automation Specialist" },
+      { name: "twitter:description", content: "Portfolio of Jeffrey Azuela — AI Automation Specialist building Zapier, Make, n8n, and GoHighLevel workflows that cut manual work by up to 80%." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44360dc2-fe04-44e1-8c3f-f1e9f7a12599/id-preview-c9365401--19a28663-5903-4876-a3b4-51b02665c88c.lovable.app-1784466194631.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44360dc2-fe04-44e1-8c3f-f1e9f7a12599/id-preview-c9365401--19a28663-5903-4876-a3b4-51b02665c88c.lovable.app-1784466194631.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
