@@ -270,7 +270,7 @@ function Portfolio() {
 
       <section id="experience" className="border-y border-border/50 bg-card/30">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <SectionLabel eyebrow="02 — Experience" title="A decade of solving problems" />
+          <SectionLabel eyebrow="02 — Experience" title="Years of Delivering Automation Solutions" />
           <div className="mt-12 space-y-6">
             {experience.map((job) => (
               <div
