@@ -306,17 +306,29 @@ function Portfolio() {
           {projects.map((p) => (
             <div
               key={p.title}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/40"
             >
-              <div>
-                <div className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
-                  {p.tag}
+              {p.image && (
+                <div className="aspect-[16/10] overflow-hidden border-b border-border bg-background">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-              </div>
-              <div className="mt-6 flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
-                <ArrowUpRight className="h-4 w-4" />
+              )}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div>
+                  <div className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
+                    {p.tag}
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-semibold leading-snug">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                </div>
+                <div className="mt-6 flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </div>
             </div>
           ))}
