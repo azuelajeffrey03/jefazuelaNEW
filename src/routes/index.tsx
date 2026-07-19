@@ -175,9 +175,8 @@ function Portfolio() {
               </span>
               Available for projects
             </div>
-            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
-              I automate the <br />
-              boring stuff with <span className="text-gradient">AI</span>.
+            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              Building <span className="text-gradient">Automation</span> That Saves Time and Scales Businesses.
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
               I'm Jeffrey — an AI Automation Specialist. I design workflows in Zapier, Make, n8n, and
