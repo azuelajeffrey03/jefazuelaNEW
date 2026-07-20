@@ -16,10 +16,13 @@ import {
   Linkedin,
   Send,
 } from "lucide-react";
-import heroImg from "@/assets/jeffrey-portrait.jpg.asset.json";
+import heroImg from "@/assets/jeffrey-portrait-nobg.png.asset.json";
 import asanaCrmImg from "@/assets/asana-crm.jpg.asset.json";
 import fbAgentImg from "@/assets/fb-agent.jpg.asset.json";
 import asanaXeroImg from "@/assets/asana-xero.jpg.asset.json";
+import gmailDriveImg from "@/assets/gmail-drive.jpg.asset.json";
+import jobsScraperImg from "@/assets/jobs-scraper.jpg.asset.json";
+import contentRepurposingImg from "@/assets/content-repurposing.jpg.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -92,12 +95,12 @@ const experience = [
 
 const projects: { tag: string; title: string; desc: string; image?: string }[] = [
   { tag: "n8n", title: "AI Appointment Setter", desc: "Autonomous agent that qualifies leads, checks calendars, and books meetings via natural conversation." },
-  { tag: "n8n", title: "AI Jobs Scraper + Resume Optimizer", desc: "Scrapes fresh job listings and tailors resumes automatically for higher match scores." },
+  { tag: "n8n", title: "AI Jobs Scraper + Resume Optimizer", desc: "Scrapes fresh job listings and tailors resumes automatically for higher match scores.", image: jobsScraperImg.url },
   { tag: "n8n", title: "YouTube Shorts & Reels Creator", desc: "Turns long-form content into short vertical videos published on autopilot." },
   { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies.", image: fbAgentImg.url },
-  { tag: "Zapier", title: "AI Content Repurposing", desc: "One blog post → LinkedIn, X, newsletter, and short-form scripts in one click." },
+  { tag: "Zapier", title: "AI Content Repurposing", desc: "One blog post → LinkedIn, X, newsletter, and short-form scripts in one click.", image: contentRepurposingImg.url },
   { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana.", image: asanaCrmImg.url },
-  { tag: "Make", title: "Gmail → Drive Auto-Sort", desc: "Attachments automatically categorized and filed to the right Drive folders." },
+  { tag: "Make", title: "Gmail → Drive Auto-Sort", desc: "Attachments automatically categorized and filed to the right Drive folders.", image: gmailDriveImg.url },
   { tag: "Make", title: "Asana × Xero Integration", desc: "Project tasks synced to invoices and financial reporting in Xero.", image: asanaXeroImg.url },
 ];
 
@@ -204,18 +207,15 @@ function Portfolio() {
               <span>Airtable</span>
             </div>
           </div>
-          <div className="relative">
-            <div className="glow-border relative overflow-hidden rounded-2xl">
-              <img
-                src={heroImg.url}
-                alt="Portrait of Jeffrey Azuela"
-
-                width={1600}
-                height={1200}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-elegant)] md:block">
+          <div className="relative flex items-center justify-center">
+            <img
+              src={heroImg.url}
+              alt="Portrait of Jeffrey Azuela"
+              width={1024}
+              height={1024}
+              className="w-full max-w-sm object-contain"
+            />
+            <div className="absolute bottom-2 left-0 hidden rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-elegant)] md:block">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Sparkles className="h-5 w-5" />
