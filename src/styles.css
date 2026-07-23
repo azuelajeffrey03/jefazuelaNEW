@@ -148,6 +148,27 @@
   &:active { transform: scale(0.96); }
 }
 
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--r, 140px)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--r, 140px)) rotate(-360deg); }
+}
+
+@utility animate-float { animation: float-y 6s ease-in-out infinite; }
+@utility animate-spin-slow { animation: spin-slow 22s linear infinite; }
+@utility animate-spin-reverse { animation: spin-reverse 30s linear infinite; }
+@utility animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+@utility animate-orbit { animation: orbit 14s linear infinite; }
+
 @layer base {
   a, button {
     transition-property: transform, color, background-color, border-color, box-shadow, opacity;

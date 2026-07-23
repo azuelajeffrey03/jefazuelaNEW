@@ -94,9 +94,7 @@ const experience = [
 ];
 
 const projects: { tag: string; title: string; desc: string; image?: string }[] = [
-  { tag: "n8n", title: "AI Appointment Setter", desc: "Autonomous agent that qualifies leads, checks calendars, and books meetings via natural conversation." },
   { tag: "n8n", title: "AI Jobs Scraper + Resume Optimizer", desc: "Scrapes fresh job listings and tailors resumes automatically for higher match scores.", image: jobsScraperImg.url },
-  { tag: "n8n", title: "YouTube Shorts & Reels Creator", desc: "Turns long-form content into short vertical videos published on autopilot." },
   { tag: "n8n", title: "Facebook Page AI Agent", desc: "24/7 AI responder handling DMs and comments with brand-tuned replies.", image: fbAgentImg.url },
   { tag: "Zapier", title: "AI Content Repurposing", desc: "One blog post → LinkedIn, X, newsletter, and short-form scripts in one click.", image: contentRepurposingImg.url },
   { tag: "Zapier", title: "Asana CRM Lead Engagement", desc: "Lead-to-task workflow with automated engagement sequences inside Asana.", image: asanaCrmImg.url },
@@ -169,7 +167,7 @@ function Portfolio() {
       </header>
 
       <section className="bg-mesh relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1.1fr_1fr] md:py-32">
           <div className="flex flex-col justify-center">
             <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               <span className="relative flex h-1.5 w-1.5">
@@ -207,15 +205,49 @@ function Portfolio() {
               <span>Airtable</span>
             </div>
           </div>
-          <div className="relative flex items-center justify-center">
-            <img
-              src={heroImg.url}
-              alt="Portrait of Jeffrey Azuela"
-              width={1024}
-              height={1024}
-              className="w-full max-w-sm object-contain"
-            />
-            <div className="absolute bottom-2 left-0 hidden rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-elegant)] md:block">
+          <div className="relative flex items-center justify-center self-center">
+            {/* AI-inspired decorative rings */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="absolute h-[360px] w-[360px] rounded-full bg-[image:var(--gradient-primary)] opacity-30 blur-3xl animate-pulse-glow" />
+              <div className="absolute h-[340px] w-[340px] rounded-full border border-primary/30 animate-spin-slow [mask-image:linear-gradient(135deg,black,transparent_70%)]" />
+              <div className="absolute h-[300px] w-[300px] rounded-full border border-dashed border-accent/40 animate-spin-reverse" />
+              <div className="absolute h-[260px] w-[260px] rounded-full border border-primary/20" />
+              {/* orbiting nodes */}
+              <div className="absolute h-[340px] w-[340px] animate-spin-slow">
+                <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_16px_var(--primary)]" />
+                <span className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_14px_var(--accent)]" />
+              </div>
+              <div className="absolute h-[300px] w-[300px] animate-spin-reverse">
+                <span className="absolute bottom-0 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" />
+                <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
+              </div>
+              {/* circuit svg */}
+              <svg
+                className="absolute h-[380px] w-[380px] text-primary/30"
+                viewBox="0 0 400 400"
+                fill="none"
+                aria-hidden
+              >
+                <path d="M20 200 H120 L150 170 H250 L280 200 H380" stroke="currentColor" strokeWidth="1" />
+                <path d="M200 20 V120 L170 150 V250 L200 280 V380" stroke="currentColor" strokeWidth="1" />
+                <circle cx="120" cy="200" r="3" fill="currentColor" />
+                <circle cx="280" cy="200" r="3" fill="currentColor" />
+                <circle cx="200" cy="120" r="3" fill="currentColor" />
+                <circle cx="200" cy="280" r="3" fill="currentColor" />
+              </svg>
+            </div>
+
+            <div className="group relative animate-float">
+              <img
+                src={heroImg.url}
+                alt="Portrait of Jeffrey Azuela"
+                width={1024}
+                height={1024}
+                className="relative z-10 w-full max-w-xs object-contain drop-shadow-[0_20px_40px_rgba(80,120,255,0.35)] transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_25px_60px_rgba(120,160,255,0.55)]"
+              />
+            </div>
+
+            <div className="absolute -bottom-2 left-0 z-20 hidden rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-elegant)] md:block">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Sparkles className="h-5 w-5" />
@@ -230,6 +262,7 @@ function Portfolio() {
             </div>
           </div>
         </div>
+
 
         <div className="border-t border-border/50">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-4">
