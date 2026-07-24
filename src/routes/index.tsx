@@ -23,6 +23,29 @@ import asanaXeroImg from "@/assets/asana-xero.jpg.asset.json";
 import gmailDriveImg from "@/assets/gmail-drive.jpg.asset.json";
 import jobsScraperImg from "@/assets/jobs-scraper.jpg.asset.json";
 import contentRepurposingImg from "@/assets/content-repurposing.jpg.asset.json";
+import zapierLogo from "@/assets/logos/zapier-icon.png.asset.json";
+import makeLogo from "@/assets/logos/make-com-logo.jpg.asset.json";
+import n8nLogo from "@/assets/logos/n8n.jpg.asset.json";
+import ghlLogo from "@/assets/logos/ghl.jpg.asset.json";
+import airtableLogo from "@/assets/logos/airtable.jpg.asset.json";
+import asanaLogo from "@/assets/logos/asana.jpg.asset.json";
+import mondayLogo from "@/assets/logos/monday.jpg.asset.json";
+import notionLogo from "@/assets/logos/notion.jpg.asset.json";
+import slackLogo from "@/assets/logos/slack.jpg.asset.json";
+import calendlyLogo from "@/assets/logos/calendly.jpg.asset.json";
+
+const stack = [
+  { name: "Zapier", url: zapierLogo.url },
+  { name: "Make", url: makeLogo.url },
+  { name: "n8n", url: n8nLogo.url },
+  { name: "GoHighLevel", url: ghlLogo.url },
+  { name: "Airtable", url: airtableLogo.url },
+  { name: "Asana", url: asanaLogo.url },
+  { name: "Monday", url: mondayLogo.url },
+  { name: "Notion", url: notionLogo.url },
+  { name: "Slack", url: slackLogo.url },
+  { name: "Calendly", url: calendlyLogo.url },
+];
 
 
 export const Route = createFileRoute("/")({
