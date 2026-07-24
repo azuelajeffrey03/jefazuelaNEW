@@ -493,6 +493,26 @@ function Portfolio() {
   );
 }
 
+function LogoTile({ name, url, delay }: { name: string; url: string; delay: number }) {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="logo-trace group flex aspect-[4/3] items-center justify-center border border-border bg-background p-6 click-pop"
+      style={{ animationDelay: `${delay}ms` }}
+      title={name}
+    >
+      <img
+        src={url}
+        alt={`${name} logo`}
+        loading="lazy"
+        className="logo-trace-img max-h-full max-w-full object-contain"
+        style={{ animationDelay: `${delay + 200}ms` }}
+      />
+    </div>
+  );
+}
+
 function SectionLabel({ eyebrow, title }: { eyebrow: string; title: string }) {
   const ref = useReveal<HTMLDivElement>();
   return (
