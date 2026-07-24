@@ -23,6 +23,29 @@ import asanaXeroImg from "@/assets/asana-xero.jpg.asset.json";
 import gmailDriveImg from "@/assets/gmail-drive.jpg.asset.json";
 import jobsScraperImg from "@/assets/jobs-scraper.jpg.asset.json";
 import contentRepurposingImg from "@/assets/content-repurposing.jpg.asset.json";
+import zapierLogo from "@/assets/logos/zapier-icon.png.asset.json";
+import makeLogo from "@/assets/logos/make-com-logo.jpg.asset.json";
+import n8nLogo from "@/assets/logos/n8n.jpg.asset.json";
+import ghlLogo from "@/assets/logos/ghl.jpg.asset.json";
+import airtableLogo from "@/assets/logos/airtable.jpg.asset.json";
+import asanaLogo from "@/assets/logos/asana.jpg.asset.json";
+import mondayLogo from "@/assets/logos/monday.jpg.asset.json";
+import notionLogo from "@/assets/logos/notion.jpg.asset.json";
+import slackLogo from "@/assets/logos/slack.jpg.asset.json";
+import calendlyLogo from "@/assets/logos/calendly.jpg.asset.json";
+
+const stack = [
+  { name: "Zapier", url: zapierLogo.url },
+  { name: "Make", url: makeLogo.url },
+  { name: "n8n", url: n8nLogo.url },
+  { name: "GoHighLevel", url: ghlLogo.url },
+  { name: "Airtable", url: airtableLogo.url },
+  { name: "Asana", url: asanaLogo.url },
+  { name: "Monday", url: mondayLogo.url },
+  { name: "Notion", url: notionLogo.url },
+  { name: "Slack", url: slackLogo.url },
+  { name: "Calendly", url: calendlyLogo.url },
+];
 
 
 export const Route = createFileRoute("/")({
@@ -280,6 +303,28 @@ function Portfolio() {
         </div>
       </section>
 
+      <section id="stack" className="border-b border-border/50 bg-card/20">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="flex flex-col items-center text-center">
+            <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
+              Trusted stack
+            </div>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
+              The tools I automate <span className="text-gradient">every day</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              A glowing trace outlines each logo, then the mark lights up — the same way I build
+              workflows: sketch the path, then power it on.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {stack.map((tool, i) => (
+              <LogoTile key={tool.name} name={tool.name} url={tool.url} delay={i * 120} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="mx-auto max-w-6xl px-6 py-24">
         <SectionLabel eyebrow="01 — Services" title="What I build for you" />
         <div className="mt-12 grid gap-4 md:grid-cols-2">
@@ -444,6 +489,26 @@ function Portfolio() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function LogoTile({ name, url, delay }: { name: string; url: string; delay: number }) {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      className="logo-trace group flex aspect-[4/3] items-center justify-center border border-border bg-background p-6 click-pop"
+      style={{ animationDelay: `${delay}ms` }}
+      title={name}
+    >
+      <img
+        src={url}
+        alt={`${name} logo`}
+        loading="lazy"
+        className="logo-trace-img max-h-full max-w-full object-contain"
+        style={{ animationDelay: `${delay + 200}ms` }}
+      />
     </div>
   );
 }
