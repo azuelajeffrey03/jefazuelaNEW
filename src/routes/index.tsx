@@ -303,6 +303,28 @@ function Portfolio() {
         </div>
       </section>
 
+      <section id="stack" className="border-b border-border/50 bg-card/20">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="flex flex-col items-center text-center">
+            <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
+              Trusted stack
+            </div>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
+              The tools I automate <span className="text-gradient">every day</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              A glowing trace outlines each logo, then the mark lights up — the same way I build
+              workflows: sketch the path, then power it on.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {stack.map((tool, i) => (
+              <LogoTile key={tool.name} name={tool.name} url={tool.url} delay={i * 120} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="mx-auto max-w-6xl px-6 py-24">
         <SectionLabel eyebrow="01 — Services" title="What I build for you" />
         <div className="mt-12 grid gap-4 md:grid-cols-2">
