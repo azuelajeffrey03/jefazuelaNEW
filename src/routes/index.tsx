@@ -493,21 +493,17 @@ function Portfolio() {
   );
 }
 
-function LogoTile({ name, url, delay }: { name: string; url: string; delay: number }) {
-  const ref = useReveal<HTMLDivElement>();
+function LogoTile({ name, url }: { name: string; url: string }) {
   return (
     <div
-      ref={ref}
-      className="logo-trace group flex aspect-[4/3] items-center justify-center border border-border bg-background p-6 click-pop"
-      style={{ animationDelay: `${delay}ms` }}
+      className="group mx-3 flex h-24 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-border/50 bg-background/60 px-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-primary/40 hover:bg-card/80 hover:shadow-[0_0_30px_-6px_rgba(80,120,255,0.35)]"
       title={name}
     >
       <img
         src={url}
         alt={`${name} logo`}
         loading="lazy"
-        className="logo-trace-img max-h-full max-w-full object-contain"
-        style={{ animationDelay: `${delay + 200}ms` }}
+        className="logo-glow max-h-10 max-w-full object-contain"
       />
     </div>
   );
