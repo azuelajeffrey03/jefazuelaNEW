@@ -303,8 +303,8 @@ function Portfolio() {
         </div>
       </section>
 
-      <section id="stack" className="border-b border-border/50 bg-card/20">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+      <section id="stack" className="border-b border-border/50 bg-card/20 overflow-hidden">
+        <div className="mx-auto max-w-6xl px-6 pt-20">
           <div className="flex flex-col items-center text-center">
             <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
               Trusted stack
@@ -312,14 +312,14 @@ function Portfolio() {
             <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
               The tools I automate <span className="text-gradient">every day</span>
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              A glowing trace outlines each logo, then the mark lights up — the same way I build
-              workflows: sketch the path, then power it on.
-            </p>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {stack.map((tool, i) => (
-              <LogoTile key={tool.name} name={tool.name} url={tool.url} delay={i * 120} />
+        </div>
+        <div className="relative mt-10 pb-20">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
+          <div className="flex w-max animate-marquee">
+            {[...stack, ...stack].map((tool, i) => (
+              <LogoTile key={`${tool.name}-${i}`} name={tool.name} url={tool.url} />
             ))}
           </div>
         </div>
@@ -493,21 +493,17 @@ function Portfolio() {
   );
 }
 
-function LogoTile({ name, url, delay }: { name: string; url: string; delay: number }) {
-  const ref = useReveal<HTMLDivElement>();
+function LogoTile({ name, url }: { name: string; url: string }) {
   return (
     <div
-      ref={ref}
-      className="logo-trace group flex aspect-[4/3] items-center justify-center border border-border bg-background p-6 click-pop"
-      style={{ animationDelay: `${delay}ms` }}
+      className="group mx-3 flex h-24 w-36 flex-shrink-0 items-center justify-center rounded-xl border border-border/50 bg-background/60 px-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-primary/40 hover:bg-card/80 hover:shadow-[0_0_30px_-6px_rgba(80,120,255,0.35)]"
       title={name}
     >
       <img
         src={url}
         alt={`${name} logo`}
         loading="lazy"
-        className="logo-trace-img max-h-full max-w-full object-contain"
-        style={{ animationDelay: `${delay + 200}ms` }}
+        className="logo-glow max-h-10 max-w-full object-contain"
       />
     </div>
   );
