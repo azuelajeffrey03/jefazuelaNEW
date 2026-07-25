@@ -303,8 +303,8 @@ function Portfolio() {
         </div>
       </section>
 
-      <section id="stack" className="border-b border-border/50 bg-card/20">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+      <section id="stack" className="border-b border-border/50 bg-card/20 overflow-hidden">
+        <div className="mx-auto max-w-6xl px-6 pt-20">
           <div className="flex flex-col items-center text-center">
             <div className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
               Trusted stack
@@ -312,14 +312,14 @@ function Portfolio() {
             <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
               The tools I automate <span className="text-gradient">every day</span>
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              A glowing trace outlines each logo, then the mark lights up — the same way I build
-              workflows: sketch the path, then power it on.
-            </p>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {stack.map((tool, i) => (
-              <LogoTile key={tool.name} name={tool.name} url={tool.url} delay={i * 120} />
+        </div>
+        <div className="relative mt-10 pb-20">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
+          <div className="flex w-max animate-marquee">
+            {[...stack, ...stack].map((tool, i) => (
+              <LogoTile key={`${tool.name}-${i}`} name={tool.name} url={tool.url} />
             ))}
           </div>
         </div>
