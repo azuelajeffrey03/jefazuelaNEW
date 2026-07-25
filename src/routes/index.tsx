@@ -503,7 +503,7 @@ function LogoTile({ name, url }: { name: string; url: string }) {
         src={url}
         alt={`${name} logo`}
         loading="lazy"
-        className="logo-glow max-h-10 max-w-full object-contain"
+        className="logo-glow h-10 w-10 object-contain"
       />
     </div>
   );
