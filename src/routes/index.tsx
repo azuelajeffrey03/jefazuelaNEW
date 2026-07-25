@@ -126,9 +126,9 @@ const projects: { tag: string; title: string; desc: string; image?: string }[] =
 ];
 
 const testimonials = [
-  { quote: "Jeffrey rebuilt our entire order fulfillment pipeline. What used to take our team hours every day now runs by itself. It just works.", name: "Operations Lead", role: "Glorydays" },
-  { quote: "The Google Sheets and API integrations Jeffrey delivered cut our reporting time by 80%. Reliable, well-documented, and fast to iterate.", name: "Client Partner", role: "Radotech" },
-  { quote: "Sharp problem solver. He translated a vague business need into a clean n8n workflow that we're still using today.", name: "Founder", role: "Consulting Client" },
+  { quote: "Jeffrey rebuilt our entire order fulfillment pipeline. What used to take our team hours every day now runs by itself. It just works.", name: "Dave Morgan", role: "Glorydays" },
+  { quote: "The Google Sheets and API integrations Jeffrey delivered cut our reporting time by 80%. Reliable, well-documented, and fast to iterate.", name: "Toby Fox", role: "Radotech" },
+  { quote: "Sharp problem solver. He translated a vague business need into a clean n8n workflow that we're still using today.", name: "Mason", role: "Consulting Client" },
 ];
 
 const stats = [
@@ -447,7 +447,7 @@ function Portfolio() {
             </p>
             <div className="space-y-4">
               <ContactItem icon={Mail} label="Email" value="jeffazuela@gmail.com" href="mailto:jeffazuela@gmail.com" />
-              <ContactItem icon={Phone} label="Phone" value="+63 927 498 2961" href="tel:+639274982961" />
+              <ContactItem icon={Phone} label="WhatsApp" value="+63 927 498 2961" href="tel:+639274982961" />
               <ContactItem icon={MapPin} label="Based in" value="Las Piñas City, PH" />
             </div>
           </div>
