@@ -12,8 +12,6 @@ import {
   Phone,
   MapPin,
   CheckCircle2,
-  Github,
-  Linkedin,
   Send,
 } from "lucide-react";
 import heroImg from "@/assets/jeffrey-portrait-nobg.png.asset.json";
@@ -470,7 +468,7 @@ function Portfolio() {
               type="submit"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.01]"
             >
-              {sent ? "Opening your mail app…" : "Send message"} <Send className="h-4 w-4" />
+              {sent ? "Your mail app is opening — finish sending there" : "Email Jeffrey"} <Send className="h-4 w-4" />
             </button>
           </form>
         </div>
@@ -484,8 +482,6 @@ function Portfolio() {
           </div>
           <div className="flex gap-2">
             <SocialIcon href="mailto:jeffazuela@gmail.com" icon={Mail} />
-            <SocialIcon href="#" icon={Linkedin} />
-            <SocialIcon href="#" icon={Github} />
           </div>
         </div>
       </footer>

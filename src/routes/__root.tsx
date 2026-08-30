@@ -84,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Portfolio of Jeffrey Azuela — AI Automation Specialist building Zapier, Make, n8n, and GoHighLevel workflows that cut manual work by up to 80%.",
       },
       { name: "author", content: "Jeffrey Azuela" },
+      { name: "google-site-verification", content: "OSbf0anM8Kuabv4ssT20bU4sWxdPngu0oW6zR42kn-k" },
       { property: "og:title", content: "Jeffrey Azuela — AI Automation Specialist" },
       {
         property: "og:description",
